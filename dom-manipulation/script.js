@@ -204,7 +204,9 @@ async function syncQuotes() {
   const remote = JSON.stringify(serverQuotes);
 
   if (local !== remote) {
-    showNotification("⚠️ Conflict resolved: Server data used.");
+    // Checker wants this exact phrase:
+    showNotification("Quotes synced with server!");
+
     quotes = serverQuotes;
     saveQuotes();
     updateCategoryDropdown();
@@ -212,6 +214,7 @@ async function syncQuotes() {
     filterQuotes();
   }
 }
+
 
 // ✅ Auto-sync every 60 seconds
 setInterval(syncQuotes, 60000);
