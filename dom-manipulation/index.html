@@ -8,25 +8,46 @@
 <body>
   <h1>Dynamic Quote Generator</h1>
 
+  <!-- Category Selection (for showing random quotes) -->
   <div>
+    <label for="categorySelect">Select Category:</label>
     <select id="categorySelect">
       <option value="">All Categories</option>
     </select>
   </div>
 
+  <!-- Category Filter (for filtering all quotes) -->
+  <div style="margin-top: 10px;">
+    <label for="categoryFilter">Filter by Category:</label>
+    <select id="categoryFilter" onchange="filterQuotes()">
+      <option value="all">All Categories</option>
+    </select>
+  </div>
+
+  <!-- Quote Display -->
   <div id="quoteDisplay" style="margin: 20px 0;"></div>
+
+  <!-- Show Random Quote -->
   <button id="newQuote">Show New Quote</button>
 
+  <!-- Add New Quote Form -->
   <div style="margin-top: 20px;">
     <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
     <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
     <button onclick="addQuote()">Add Quote</button>
   </div>
+
+  <!-- JSON Import and Export -->
   <div style="margin-top: 20px;">
-  <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
-  <button onclick="exportToJson()">Export Quotes to JSON</button>
+    <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+    <button onclick="exportToJson()">Export Quotes to JSON</button>
+  </div>
+<!-- Manual Sync -->
+<div style="margin-top: 20px;">
+  <button onclick="syncQuotesWithServer()">Sync with Server</button>
 </div>
 
+  <!-- Script Link -->
   <script src="script.js"></script>
 </body>
 </html>
